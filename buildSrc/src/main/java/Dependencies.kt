@@ -1,6 +1,7 @@
 
 object CoreDependencies {
     const val core = "androidx.core:core-ktx:1.8.0"
+    const val sharedPref = "androidx.security:security-crypto:1.1.0-alpha06"
 }
 
 object UIDependencies {
@@ -18,6 +19,9 @@ object UIDependencies {
     const val savedStateHandle = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1"
     const val coil = "io.coil-kt:coil:2.4.0"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:2.6.1"
+    const val hiltNavigationCompose ="androidx.hilt:hilt-navigation-compose:1.0.0"
+    const val coilCompose = "io.coil-kt:coil-compose:2.3.0"
+
 
 }
 

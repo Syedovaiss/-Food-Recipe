@@ -73,6 +73,9 @@ dependencies {
     implementation(NetworkDependencies.retrofit)
     implementation(NetworkDependencies.gson)
     implementation(UIDependencies.coil)
+    implementation(UIDependencies.hiltNavigationCompose)
+    implementation(UIDependencies.coilCompose)
+    implementation(CoreDependencies.sharedPref)
 
     testImplementation(TestDependencies.jUnit)
     androidTestImplementation(TestDependencies.jUnitExtension)
