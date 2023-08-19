@@ -61,6 +61,7 @@ dependencies {
     implementation(UIDependencies.composeGraphics)
     implementation(UIDependencies.composeToolingPreview)
     implementation(UIDependencies.composeMaterial3)
+    implementation(UIDependencies.material)
 
     implementation(UIDependencies.lifecycleViewModel)
     implementation(UIDependencies.lifecycleViewModelCompose)
