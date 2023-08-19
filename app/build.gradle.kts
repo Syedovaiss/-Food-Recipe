@@ -62,6 +62,7 @@ dependencies {
     implementation(UIDependencies.composeToolingPreview)
     implementation(UIDependencies.composeMaterial3)
     implementation(UIDependencies.material)
+    implementation(UIDependencies.animatedBottomBar)
 
     implementation(UIDependencies.lifecycleViewModel)
     implementation(UIDependencies.lifecycleViewModelCompose)
