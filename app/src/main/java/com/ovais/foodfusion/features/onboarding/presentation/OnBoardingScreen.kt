@@ -12,11 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.ovais.foodfusion.R
+import com.ovais.foodfusion.common.navigation.Screens
 import com.ovais.foodfusion.common.ui.IconButton
 import com.ovais.foodfusion.common.ui.LargeTitleComponent
 import com.ovais.foodfusion.common.ui.NormalTextComponent
@@ -24,7 +24,7 @@ import com.ovais.foodfusion.common.ui.NormalTextComponent
 
 @Composable
 fun OnBoarding(
-    viewModel: OnBoardingViewModel = hiltViewModel()
+    navController: NavController
 ) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -60,16 +60,10 @@ fun OnBoarding(
                 rightDrawable = R.drawable.ic_arrow_right,
                 fontSize = 18.sp
             ) {
-                viewModel.startCooking()
+                navController.navigate(Screens.Home.route)
             }
         }
 
     }
 
-}
-
-@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true, widthDp = 360, heightDp = 640)
-@Composable
-fun Preview_OnBoarding() {
-    OnBoarding()
 }

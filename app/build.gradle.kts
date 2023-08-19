@@ -74,6 +74,7 @@ dependencies {
     implementation(NetworkDependencies.gson)
     implementation(UIDependencies.coil)
     implementation(UIDependencies.hiltNavigationCompose)
+    implementation(UIDependencies.navigationCompose)
     implementation(UIDependencies.coilCompose)
     implementation(CoreDependencies.sharedPref)
 
