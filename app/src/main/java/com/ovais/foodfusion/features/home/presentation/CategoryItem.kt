@@ -57,5 +57,7 @@ fun CateogoryItemPreview() {
         title = "Beef",
         thumbnail = "https://www.google.com.pk/"
     )
-    CategoryItem(uiData = uiData)
+    CategoryItem(uiData = uiData) {
+
+    }
 }
