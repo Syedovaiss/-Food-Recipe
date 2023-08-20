@@ -13,5 +13,5 @@ object AppConfig {
     const val canMinify = false
 
     const val JVMTarget = "1.8"
-    const val kotlinCompilerExtension = "1.3.2"
+    const val kotlinCompilerExtension = "1.4.7"
 }

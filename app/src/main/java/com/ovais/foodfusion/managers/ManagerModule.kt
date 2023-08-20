@@ -12,4 +12,9 @@ interface ManagerModule {
     fun bindLocalStorageManager(
         default: DefaultLocalStorageManager
     ): LocalStorageManager
+
+    @Binds
+    fun bindToastManager(
+        default: DefaultToastManager
+    ): ToastManager
 }
