@@ -2,7 +2,6 @@ package com.ovais.foodfusion.features.bottomnavigation
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,10 +31,9 @@ import androidx.navigation.compose.rememberNavController
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.balltrajectory.Parabolic
 import com.exyte.animatednavbar.animation.indendshape.Height
-import com.exyte.animatednavbar.animation.indendshape.IndentAnimation
 import com.exyte.animatednavbar.animation.indendshape.shapeCornerRadius
 import com.ovais.foodfusion.R
-import com.ovais.foodfusion.application.theme.Purple80
+import com.ovais.foodfusion.application.theme.BOTTOM_NAV_BACKGROUND
 import com.ovais.foodfusion.features.accounts.presentation.AccountsScreen
 import com.ovais.foodfusion.features.create_recipe.presentation.CreateRecipeScreen
 import com.ovais.foodfusion.features.home.presentation.HomeScreen
@@ -47,7 +45,6 @@ import com.ovais.foodfusion.features.saved_recipes.presentation.SavedRecipesScre
 fun BottomNavigationScreen() {
     val navController = rememberNavController()
     Scaffold(
-//        bottomBar = { BottomNav(navController = navController) }
         bottomBar = { AnimatedBottomNav(navController = navController) }
     ) { contentPadding ->
         NavigationGraph(navController = navController)
@@ -72,82 +69,23 @@ fun AnimatedBottomNav(
         selectedIndex = selectedIndex.value,
         modifier = Modifier.height(64.dp),
         ballColor = Color.Red,
-        barColor = Purple80,
-        cornerRadius = shapeCornerRadius(16.dp),
-        ballAnimation = Parabolic(tween(300)),
-        indentAnimation = Height(tween(300))
+        barColor = BOTTOM_NAV_BACKGROUND,
+        cornerRadius = shapeCornerRadius(16.dp)
     ) {
         items.forEach { navItems ->
-
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .nonRippleClickable(navItems) { item ->
-                        when (item.route) {
-                            BottomNavigationItems.Home.route -> {
-                                selectedIndex.value = 0
-                                navController.navigate(item.route) {
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
-                                        }
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
+                        selectedIndex.value = item.index
+                        navController.navigate(item.route) {
+                            navController.graph.startDestinationRoute?.let { screen_route ->
+                                popUpTo(screen_route) {
+                                    saveState = true
                                 }
                             }
-
-                            BottomNavigationItems.SavedRecipes.route -> {
-                                selectedIndex.value = 1
-                                navController.navigate(item.route) {
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
-                                        }
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            }
-
-                            BottomNavigationItems.CreateRecipe.route -> {
-                                selectedIndex.value = 2
-                                navController.navigate(item.route) {
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
-                                        }
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            }
-
-                            BottomNavigationItems.Notifications.route -> {
-                                selectedIndex.value = 3
-                                navController.navigate(item.route) {
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
-                                        }
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            }
-
-                            BottomNavigationItems.Account.route -> {
-                                selectedIndex.value = 4
-                                navController.navigate(item.route) {
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
-                                        }
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            }
+                            launchSingleTop = true
+                            restoreState = true
                         }
                     },
                 contentAlignment = Alignment.Center,
