@@ -22,8 +22,8 @@ object UIDependencies {
     const val hiltNavigationCompose ="androidx.hilt:hilt-navigation-compose:1.0.0"
     const val navigationCompose = "androidx.navigation:navigation-compose:2.5.3"
     const val coilCompose = "io.coil-kt:coil-compose:2.3.0"
-
-
+    const val material = "androidx.compose.material:material:1.4.2"
+    const val animatedBottomBar = "com.exyte:animated-navigation-bar:1.0.0"
 }
 
 object DIDependencies {

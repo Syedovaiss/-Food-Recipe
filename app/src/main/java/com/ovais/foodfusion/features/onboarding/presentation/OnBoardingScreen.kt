@@ -60,7 +60,7 @@ fun OnBoarding(
                 rightDrawable = R.drawable.ic_arrow_right,
                 fontSize = 18.sp
             ) {
-                navController.navigate(Screens.Home.route)
+                navController.navigate(Screens.BottomNavigationScreen.route)
             }
         }
 

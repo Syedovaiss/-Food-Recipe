@@ -42,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        dataBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = AppConfig.kotlinCompilerExtension
@@ -61,6 +62,8 @@ dependencies {
     implementation(UIDependencies.composeGraphics)
     implementation(UIDependencies.composeToolingPreview)
     implementation(UIDependencies.composeMaterial3)
+    implementation(UIDependencies.material)
+    implementation(UIDependencies.animatedBottomBar)
 
     implementation(UIDependencies.lifecycleViewModel)
     implementation(UIDependencies.lifecycleViewModelCompose)
