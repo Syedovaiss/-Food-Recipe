@@ -1,4 +1,3 @@
-
 object CoreDependencies {
     const val core = "androidx.core:core-ktx:1.8.0"
     const val sharedPref = "androidx.security:security-crypto:1.1.0-alpha06"
@@ -19,7 +18,7 @@ object UIDependencies {
     const val savedStateHandle = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1"
     const val coil = "io.coil-kt:coil:2.4.0"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:2.6.1"
-    const val hiltNavigationCompose ="androidx.hilt:hilt-navigation-compose:1.0.0"
+    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
     const val navigationCompose = "androidx.navigation:navigation-compose:2.5.3"
     const val coilCompose = "io.coil-kt:coil-compose:2.3.0"
     const val material = "androidx.compose.material:material:1.4.2"
@@ -50,4 +49,11 @@ object DebugDependecies {
 object NetworkDependencies {
     const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
     const val gson = "com.squareup.retrofit2:converter-gson:2.9.0"
+    const val kotlinSerializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
+    const val retrofitSerialization =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+    const val chuckDebug = "com.github.chuckerteam.chucker:library:3.5.2"
+    const val chuckRelease = "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+    val okhttp3Interceptor = "com.squareup.okhttp3:logging-interceptor:4.10.0"
+    val okhttp3 = "com.squareup.okhttp3:okhttp:4.10.0"
 }

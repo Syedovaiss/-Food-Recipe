@@ -8,6 +8,7 @@ buildscript {
     }
     dependencies {
         classpath(ProjectConfig.hiltClasspath)
+        classpath(ProjectConfig.serialization)
     }
 }
 plugins {

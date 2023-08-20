@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,10 +28,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.ovais.foodfusion.R
 import com.ovais.foodfusion.common.ui.LargeTitleComponent
 import com.ovais.foodfusion.common.ui.NormalTextComponent
+import com.ovais.foodfusion.utils.EMPTY_STRING
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,9 +41,11 @@ fun HomeScreen(
     navController: NavController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    var searchedText by remember { mutableStateOf("") }
+    var searchedText by remember { mutableStateOf(EMPTY_STRING) }
+    val categories = viewModel.categoriesUiData.collectAsStateWithLifecycle()
     Surface(Modifier.fillMaxSize()) {
         Column {
+            // TODO remove hardcoded strings and add string.xml
             LargeTitleComponent(
                 title = "Find best recipes\nfor cooking",
                 modifier = Modifier
@@ -81,7 +87,7 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 NormalTextComponent(
-                    title = "Trending Now",
+                    title = "Categories",
                     modifier = Modifier.padding(start = 16.dp, top = 16.dp),
                     textColor = Color.Black,
                     textAlign = TextAlign.Left
@@ -92,6 +98,13 @@ fun HomeScreen(
                     textColor = Color.Red,
                     textAlign = TextAlign.End
                 )
+            }
+            LazyRow(modifier = Modifier.fillMaxWidth()) {
+                items(items = categories.value, itemContent = { uiData ->
+                    CategoryItem(uiData = uiData) { data ->
+                        viewModel.onCategoryClick(data)
+                    }
+                })
             }
 
         }

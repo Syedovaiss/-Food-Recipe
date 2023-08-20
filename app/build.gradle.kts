@@ -5,6 +5,7 @@ plugins {
     id(PluginConfig.kotlinAndroid)
     id(PluginConfig.kotlinKapt)
     id(PluginConfig.daggerHilt)
+    id(PluginConfig.ktSerialization)
 }
 
 android {
@@ -74,6 +75,12 @@ dependencies {
     implementation(DIDependencies.daggerHilt)
     kapt(DIDependencies.hiltCompiler)
     implementation(NetworkDependencies.retrofit)
+    implementation(NetworkDependencies.okhttp3)
+    implementation(NetworkDependencies.okhttp3Interceptor)
+    implementation(NetworkDependencies.kotlinSerializationJson)
+    debugImplementation(NetworkDependencies.chuckDebug)
+    releaseImplementation(NetworkDependencies.chuckRelease)
+    implementation(NetworkDependencies.retrofitSerialization)
     implementation(NetworkDependencies.gson)
     implementation(UIDependencies.coil)
     implementation(UIDependencies.hiltNavigationCompose)

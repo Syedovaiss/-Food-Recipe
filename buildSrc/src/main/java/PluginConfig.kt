@@ -5,4 +5,5 @@ object PluginConfig {
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinKapt = "kotlin-kapt"
     const val daggerHilt = "dagger.hilt.android.plugin"
+    const val ktSerialization = "kotlinx-serialization"
 }
